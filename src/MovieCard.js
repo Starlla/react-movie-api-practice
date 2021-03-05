@@ -21,15 +21,6 @@ export default function ImgMediaCard({ title, image, type, year }) {
   const classes = useStyles();
   const [like, setLike] = useState(0);
 
-  const increaseMyLike = () => {
-    const currentLike = like
-    setLike(currentLike + 1);
-  }
-  const decreaseMyLike = () => {
-    const currentLike = like
-    setLike(currentLike - 1);
-  }
-
   return (
     <Card className={classes.root}>
       <CardActionArea>
@@ -61,7 +52,7 @@ export default function ImgMediaCard({ title, image, type, year }) {
           color="secondary"
           className={classes.button}
           startIcon={<ThumbUpIcon />}
-          onClick={increaseMyLike}
+          onClick={()=>setLike(like+1)}
         >
         </Button>
         <Button
@@ -69,7 +60,7 @@ export default function ImgMediaCard({ title, image, type, year }) {
           color="secondary"
           className={classes.button}
           startIcon={<ThumbDownIcon />}
-          onClick={decreaseMyLike}
+          onClick={()=>setLike(like-1)}
         >
         </Button>
 
