@@ -153,7 +153,7 @@ function App() {
             <Grid
               item
               xs={12}
-              sm={4}
+              sm={3}
             >
               <MovieCard title={entry.Title} image={entry.Poster} type={entry.Type} year={entry.Year} />
             </Grid>)) : null}

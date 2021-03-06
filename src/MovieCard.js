@@ -4,6 +4,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import IconButton from '@material-ui/core/IconButton';
 import React from 'react';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
@@ -27,7 +28,7 @@ export default function ImgMediaCard({ title, image, type, year }) {
         <CardMedia
           component="img"
           alt="Contemplative Reptile"
-          height="140"
+          height="440"
           image={image}
           title="Contemplative Reptile"
         />
@@ -47,24 +48,16 @@ export default function ImgMediaCard({ title, image, type, year }) {
         <Button size="small" color="primary">
           Learn More
         </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.button}
-          startIcon={<ThumbUpIcon />}
-          onClick={()=>setLike(like+1)}
-        >
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.button}
-          startIcon={<ThumbDownIcon />}
-          onClick={()=>setLike(like-1)}
-        >
-        </Button>
 
-        <div>{like}</div>
+        <IconButton color="secondary" aria-label="dislike" component="span" onClick={() => setLike(like + 1)}>
+          <ThumbUpIcon />
+        </IconButton>
+
+        <IconButton color="secondary" aria-label="dislike" component="span" onClick={() => setLike(like - 1)}>
+          <ThumbDownIcon />
+        </IconButton>
+
+        <Typography>{like}</Typography>
       </CardActions>
     </Card>
   );
